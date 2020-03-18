@@ -10,7 +10,7 @@
 // Hardware related definitions for generic ESP32 boards
 // generic.h is kitchensink with all available options
 
-#define HAS_LORA 1 // comment out if device shall not send data via LoRa or has no LoRa
+//#define HAS_LORA 1 // comment out if device shall not send data via LoRa or has no LoRa
 #define HAS_SPI 1  // comment out if device shall not send data via SPI
 // pin definitions for SPI slave interface
 #define SPI_MOSI GPIO_NUM_23
@@ -35,9 +35,9 @@
 // for loading necessary libraries
 
 // BME680 sensor on I2C bus
-#define HAS_BME 1 // Enable BME sensors in general
-#define HAS_BME680 GPIO_NUM_21, GPIO_NUM_22 // SDA, SCL
-#define BME680_ADDR BME680_I2C_ADDR_PRIMARY // connect SDIO of BME680 to GND
+//#define HAS_BME 1 // Enable BME sensors in general
+//#define HAS_BME680 GPIO_NUM_21, GPIO_NUM_22 // SDA, SCL
+//#define BME680_ADDR BME680_I2C_ADDR_PRIMARY // connect SDIO of BME680 to GND
 
 // BME280 sensor on I2C bus
 //#define HAS_BME 1 // Enable BME sensors in general
@@ -53,10 +53,10 @@
 
 #define CFG_sx1276_radio 1 // select LoRa chip
 //#define CFG_sx1272_radio 1 // select LoRa chip
-#define BOARD_HAS_PSRAM // use if board has external PSRAM
+//#define BOARD_HAS_PSRAM // use if board has external PSRAM
 #define DISABLE_BROWNOUT 1 // comment out if you want to keep brownout feature
 
-#define HAS_DISPLAY 1
+//#define HAS_DISPLAY 1
 //#define DISPLAY_FLIP  1 // use if display is rotated
 #define BAT_MEASURE_ADC ADC1_GPIO35_CHANNEL // battery probe GPIO pin -> ADC1_CHANNEL_7
 #define BAT_VOLTAGE_DIVIDER 2 // voltage divider 100k/100k on board
@@ -66,7 +66,7 @@
 #define HAS_RGB_LED SmartLed rgb_led(LED_WS2812, 1, GPIO_NUM_0) // WS2812B RGB LED on GPIO0
 
 // GPS settings
-#define HAS_GPS 1 // use on board GPS
+//#define HAS_GPS 1 // use on board GPS
 #define GPS_SERIAL 9600, SERIAL_8N1, GPIO_NUM_12, GPIO_NUM_15 // UBlox NEO 6M RX, TX
 #define GPS_INT GPIO_NUM_13 // 30ns accurary timepulse, to be external wired on pcb: NEO 6M Pin#3 -> GPIO13
 
