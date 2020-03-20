@@ -56,6 +56,10 @@ void SendPayload(uint8_t port, sendprio_t prio) {
   sdcardWriteData(macs_wifi, macs_ble);
 #endif
 
+//Send counters via UART to Raspberry PI
+log_printf("\n**");
+log_printf("(W:%d,B:%d)", macs_wifi, macs_ble);
+
 } // SendPayload
 
 // interrupt triggered function to prepare payload to send

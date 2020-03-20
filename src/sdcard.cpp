@@ -16,8 +16,11 @@ File fileSDCard;
 bool sdcardInit() {
   ESP_LOGD(TAG, "looking for SD-card...");
   useSDCard = SD.begin(SDCARD_CS, SDCARD_MOSI, SDCARD_MISO, SDCARD_SCLK);
-  if (useSDCard)
+  if (useSDCard){
     createFile();
+  }else{
+    ESP_LOGW(TAG, "no SD-card found :(");
+  }
   return useSDCard;
 }
 
@@ -25,6 +28,9 @@ void sdcardWriteData(uint16_t noWifi, uint16_t noBle) {
   static int counterWrites = 0;
   char tempBuffer[12 + 1];
   time_t t = now();
+
+  //log_printf("\n\nWiFi: %d, BLE: %d \n\n", noWifi, noBle);
+
 
   if (!useSDCard)
     return;

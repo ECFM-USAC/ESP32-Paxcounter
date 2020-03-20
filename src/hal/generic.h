@@ -21,10 +21,17 @@
 // enable only if you want to store a local paxcount table on the device
 #define HAS_SDCARD  1      // this board has an SD-card-reader/writer
 // Pins for SD-card
+/*
 #define SDCARD_CS    (13)
 #define SDCARD_MOSI  (15)
 #define SDCARD_MISO  (2)
 #define SDCARD_SCLK  (14)
+*/
+#define SDCARD_CS    (5)
+#define SDCARD_MOSI  (23)
+#define SDCARD_MISO  (19)
+#define SDCARD_SCLK  (18)
+
 
 // enable only if device has these sensors, otherwise comment these lines
 // tutorial to connect BME sensor see here:
@@ -61,9 +68,9 @@
 #define BAT_MEASURE_ADC ADC1_GPIO35_CHANNEL // battery probe GPIO pin -> ADC1_CHANNEL_7
 #define BAT_VOLTAGE_DIVIDER 2 // voltage divider 100k/100k on board
 
-#define HAS_LED (21) // on board  LED
-#define HAS_BUTTON (39) // on board button
-#define HAS_RGB_LED SmartLed rgb_led(LED_WS2812, 1, GPIO_NUM_0) // WS2812B RGB LED on GPIO0
+#define HAS_LED (2) // on board  LED
+#define HAS_BUTTON (0) // on board button
+//#define HAS_RGB_LED SmartLed rgb_led(LED_WS2812, 1, GPIO_NUM_0) // WS2812B RGB LED on GPIO0
 
 // GPS settings
 //#define HAS_GPS 1 // use on board GPS
@@ -71,13 +78,19 @@
 #define GPS_INT GPIO_NUM_13 // 30ns accurary timepulse, to be external wired on pcb: NEO 6M Pin#3 -> GPIO13
 
 // Pins for I2C interface of OLED Display
+/*
 #define MY_OLED_SDA (4)
 #define MY_OLED_SCL (15)
 #define MY_OLED_RST (16)
+*/
+
+#define MY_OLED_SDA (21)
+#define MY_OLED_SCL (22)
+#define MY_OLED_RST (16)
 
 // Settings for on board DS3231 RTC chip
-#define HAS_RTC MY_OLED_SDA, MY_OLED_SCL // SDA, SCL
-#define RTC_INT GPIO_NUM_34 // timepulse with accuracy +/- 2*e-6 [microseconds] = 0,1728sec / day
+//#define HAS_RTC MY_OLED_SDA, MY_OLED_SCL // SDA, SCL
+//#define RTC_INT GPIO_NUM_34 // timepulse with accuracy +/- 2*e-6 [microseconds] = 0,1728sec / day
 
 // Settings for IF482 interface
 //#define HAS_IF482 9600, SERIAL_7E1, GPIO_NUM_12, GPIO_NUM_14 // IF482 serial port parameters
