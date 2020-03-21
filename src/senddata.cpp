@@ -57,8 +57,8 @@ void SendPayload(uint8_t port, sendprio_t prio) {
 #endif
 
 //Send counters via UART to Raspberry PI
-log_printf("\n**");
-log_printf("(W:%d,B:%d)", macs_wifi, macs_ble);
+log_printf("**");
+log_printf("%d,%d\n", macs_wifi, macs_ble);
 
 } // SendPayload
 
