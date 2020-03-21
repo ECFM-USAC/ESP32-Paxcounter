@@ -18,6 +18,7 @@ import Adafruit_IO as adaIO
 import serial
 import serial.tools.list_ports
 import binascii
+import credentials
 
 #Data format: **(W:n,B:m)
 
@@ -77,7 +78,7 @@ finally:
     print('Inicialización UART completada en ' + usbport)
     
 
-aio = adaIO.Client('imoralesgt', 'aio_RaLj456gGeu5DTN5onAF2e8AAZ4D')
+aio = adaIO.Client(credentials.USER_NAME, credentials.PRIVATE_KEY)
 
 
 while(1):
