@@ -29,6 +29,8 @@ LIST_OF_COUNTERS = [WIFI_TOKEN, BLE_TOKEN]
 TYPE_SEPARATOR_TOKEN = ','
 COUNT_SEPARATOR_TOKEN = ':'
 
+AVG_VALUES = 5 #Values to be averaged (mean) 
+
 def parseCounters(serialText):
     #Expected format '**m,n', being 'm' and 'n' integers for (WiFi,BLE)
     #Returns a list of integer in the same order it was received, ie. [WiFi,BLE]
@@ -80,6 +82,9 @@ finally:
 
 aio = adaIO.Client(credentials.USER_NAME, credentials.PRIVATE_KEY)
 
+values = []
+avg = 0
+n = AVG_VALUES
 
 while(1):
     x = readFromUart()
@@ -90,7 +95,18 @@ while(1):
             bleCounters  = int(counters[1])
             print('Parsed data: ' + str(counters))
             print('WiFi counters sent: ' + str(wifiCounters))
-            aio.send("node-1", wifiCounters)   
+            if not n:
+                n = AVG_VALUES
+                
+                avg = sum(values)/AVG_VALUES
+                values = []
+                
+                aio.send('node-1', avg)
+                
+            else:
+                values.append(wifiCounters)
+                n -= 1
+  
             time.sleep(60)
 
 '''
