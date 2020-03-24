@@ -14,3 +14,4 @@ src/loraconf.h
 src/ota.conf
 pythonRPi/credentials.py
 pythonRPi/__pycache__/*
+.pyc
